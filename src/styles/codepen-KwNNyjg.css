@@ -1110,6 +1110,303 @@ html.codepen-home body:has(a:hover, button:hover) #cur-ring{
 	}
 }
 
+/* ─── STITCH VISION DRAFT 2 — catalog / about refinements
+     (does NOT touch #cur, hero-bg-img, special-ribbon, special-inner, or promo strip) ─── */
+.codepen-home .special-actions{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	margin-top: 24px;
+}
+.codepen-home .special-ghost{
+	display: inline-flex;
+	align-items: center;
+	padding: 12px 20px;
+	border-radius: 100px;
+	background: rgba(253, 250, 245, 0.7);
+	border: 1px solid var(--border);
+	color: var(--text);
+	font-size: 13px;
+	font-weight: 500;
+	text-decoration: none;
+	transition: background 0.2s, border-color 0.2s;
+}
+.codepen-home .special-ghost:hover{
+	background: #fff;
+	border-color: rgba(29, 158, 117, 0.35);
+}
+
+.codepen-home .menu-top{
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 28px;
+	margin-bottom: 48px;
+	flex-wrap: wrap;
+}
+.codepen-home .menu-header--left{
+	text-align: left;
+	margin-bottom: 0;
+	flex: 1 1 280px;
+}
+.codepen-home .menu-header--left .section-label,
+.codepen-home .info-section > .container > .section-label{
+	justify-content: flex-start;
+}
+.codepen-home .menu-header--left .section-label::before,
+.codepen-home .menu-header--left .section-label::after,
+.codepen-home .info-section > .container > .section-label::before,
+.codepen-home .info-section > .container > .section-label::after{
+	display: none;
+}
+.codepen-home .section-label-dot{
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--teal);
+	display: inline-block;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+.codepen-home .section-title--catalog{
+	font-size: clamp(28px, 3.6vw, 40px);
+	line-height: 1.15;
+}
+.codepen-home .menu-sub{
+	margin-top: 10px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--text-m);
+	max-width: 420px;
+}
+.codepen-home .cat-filter--tray{
+	justify-content: flex-end;
+	margin-bottom: 0;
+	padding: 6px;
+	background: var(--sand2);
+	border-radius: 100px;
+	border: 1px solid var(--border2);
+}
+.codepen-home .cat-filter--tray .cat-btn{
+	background: transparent;
+	border-color: transparent;
+}
+.codepen-home .cat-filter--tray .cat-btn.active{
+	background: var(--teal);
+	border-color: var(--teal);
+	color: #fff;
+}
+
+.codepen-home .card-stack-badge{
+	position: absolute;
+	bottom: 14px;
+	right: 14px;
+	background: rgba(44, 44, 42, 0.78);
+	color: #fdfaf5;
+	padding: 5px 10px;
+	border-radius: 8px;
+	font-size: 10px;
+	letter-spacing: 0.06em;
+	font-weight: 500;
+}
+.codepen-home .card-meta-row{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 8px;
+	font-size: 11px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+.codepen-home .card-index{
+	color: var(--teal);
+	font-weight: 600;
+}
+.codepen-home .card-meta-sep{
+	color: var(--sand3);
+}
+.codepen-home .card-meta-date{
+	color: var(--text-l);
+}
+.codepen-home .card-kicker{
+	font-size: 13px;
+	color: var(--teal);
+	font-weight: 500;
+	margin: -4px 0 10px;
+}
+.codepen-home .card-footer--case{
+	margin-top: 4px;
+}
+.codepen-home .case-link{
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--teal);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+.codepen-home .case-link:hover{
+	color: var(--teal-d);
+}
+.codepen-home .card-of{
+	font-size: 11px;
+	letter-spacing: 0.1em;
+	color: var(--text-l);
+	text-transform: uppercase;
+}
+
+.codepen-home .about-grid{
+	display: grid;
+	grid-template-columns: 1.35fr 1fr;
+	gap: 28px;
+	align-items: start;
+}
+.codepen-home .about-bio{
+	background: #fff;
+	border: 1px solid var(--border2);
+	border-radius: 20px;
+	padding: 36px 40px;
+	box-shadow: 0 8px 28px -16px rgba(44, 44, 42, 0.12);
+}
+.codepen-home .about-bio-head{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 22px;
+}
+.codepen-home .about-avatar{
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: var(--teal-l);
+	color: var(--teal-d);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Playfair Display", serif;
+	font-size: 28px;
+	font-weight: 700;
+	flex-shrink: 0;
+}
+.codepen-home .about-name{
+	font-family: "Playfair Display", serif;
+	font-size: 28px;
+	font-weight: 700;
+	color: var(--text);
+	margin: 0;
+	line-height: 1.2;
+}
+.codepen-home .about-role{
+	margin: 4px 0 0;
+	color: var(--teal);
+	font-size: 14px;
+	font-weight: 500;
+}
+.codepen-home .about-lead{
+	font-size: 16px;
+	line-height: 1.7;
+	color: var(--text-m);
+	margin: 0 0 22px;
+}
+.codepen-home .about-points{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+.codepen-home .about-points li{
+	font-size: 14px;
+	line-height: 1.65;
+	color: var(--text-m);
+}
+.codepen-home .about-points strong{
+	color: var(--text);
+	font-weight: 600;
+}
+.codepen-home .about-side{
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+.codepen-home .about-contact{
+	background: #fff;
+	border: 1px solid var(--border2);
+	border-radius: 20px;
+	padding: 28px 30px;
+	box-shadow: 0 8px 28px -16px rgba(44, 44, 42, 0.12);
+}
+.codepen-home .about-contact-list{
+	list-style: none;
+	margin: 0 0 22px;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.codepen-home .about-contact-list li{
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+.codepen-home .about-contact-label{
+	font-size: 11px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-l);
+}
+.codepen-home .about-contact-list a,
+.codepen-home .about-contact-list span:not(.about-contact-label){
+	font-size: 14px;
+	color: var(--text);
+	text-decoration: none;
+	font-weight: 500;
+}
+.codepen-home .about-contact-list a:hover{
+	color: var(--teal);
+}
+.codepen-home .about-resume{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 13px 20px;
+	border-radius: 100px;
+	background: var(--teal);
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: background 0.2s;
+}
+.codepen-home .about-resume:hover{
+	background: var(--teal-d);
+}
+.codepen-home .about-standing{
+	background: var(--sand3);
+	border-radius: 16px;
+	padding: 22px 26px;
+}
+.codepen-home .about-standing-label{
+	font-size: 11px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--teal-d);
+	font-weight: 600;
+	margin-bottom: 6px;
+}
+.codepen-home .about-standing-title{
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--text);
+}
+.codepen-home .about-standing-sub{
+	margin-top: 4px;
+	font-size: 13px;
+	color: var(--text-m);
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
 	.codepen-home nav{
@@ -1132,9 +1429,16 @@ html.codepen-home body:has(a:hover, button:hover) #cur-ring{
 		order: 1;
 		max-width: 480px;
 	}
-	.codepen-home .info-grid{
+	.codepen-home .info-grid,
+	.codepen-home .about-grid{
 		grid-template-columns: 1fr;
 		gap: 40px;
+	}
+	.codepen-home .menu-top{
+		align-items: flex-start;
+	}
+	.codepen-home .cat-filter--tray{
+		justify-content: flex-start;
 	}
 	.codepen-home footer{
 		flex-direction: column;
@@ -1155,5 +1459,8 @@ html.codepen-home body:has(a:hover, button:hover) #cur-ring{
 	}
 	.codepen-home nav{
 		padding: 14px 20px;
+	}
+	.codepen-home .about-bio{
+		padding: 28px 22px;
 	}
 }

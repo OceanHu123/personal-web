@@ -50,8 +50,8 @@ export const site = {
     avatarSrc: '' as string,
   },
   projectsSection: {
-    eyebrow: 'SELECTED WORK',
+    eyebrow: 'PROJECT CATALOG',
     title: '精选项目 / Selected Projects',
-    subtitle: '01 — 02 / 点进详情看问题、做法与界面',
+    subtitle: '01 — 02 / 点击进入独立项目详情页，查看完整架构与设计复盘',
   },
 } as const

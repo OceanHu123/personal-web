@@ -17,26 +17,27 @@ export function ProjectDetailPage() {
   const usePhoneShowcase = phoneItems.length > 0
 
   return (
-    <div className="mx-auto max-w-6xl space-y-16 px-6 py-10 md:px-8">
+    <div className="mx-auto max-w-[1280px] space-y-14 px-6 py-10 md:px-8">
       <Reveal y={16}>
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <Link
             to="/#menu"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-ivory-soft px-4 py-2 text-charcoal shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-stone px-4 py-2 text-charcoal shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone-soft"
           >
             <Icon
               name="arrow_back"
               size={18}
               className="text-accent transition-transform group-hover:-translate-x-1"
             />
-            <span className="text-[16px] font-medium">
+            <span className="text-[14px] font-medium tracking-wide">
               返回首页 (Back to Home)
             </span>
           </Link>
-          <div className="inline-flex items-center gap-2 rounded-full bg-stone-soft/70 px-3 py-1.5 text-taupe">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-ivory-soft px-3.5 py-1.5 text-taupe">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             <span className="text-[11px] tracking-wide">
-              项目详情 · INDEX {project.index} / {project.systemId}
+              项目详情 · INDEX {project.index} / {project.systemId} ·{' '}
+              {project.version}
             </span>
           </div>
         </div>

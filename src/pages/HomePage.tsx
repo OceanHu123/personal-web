@@ -122,12 +122,16 @@ export function HomePage() {
                 </span>
               ))}
             </div>
-            <div style={{ marginTop: 24 }}>
+            <div className="special-actions">
               <Link to={`/projects/${setbite.id}`} className="nav-cta">
                 进入项目详情 →
               </Link>
+              <Link to={`/projects/${setbite.id}`} className="special-ghost">
+                查看案例研究
+              </Link>
             </div>
           </div>
+          {/* LOCKED composition: overlapping promo phones + badge — do not relocate */}
           <div className="special-img special-img--promo reveal">
             <div className="special-promo-stage">
               <PromoPhoneStrip items={setbitePhones} size="lg" />
@@ -155,34 +159,29 @@ export function HomePage() {
 
       <section className="menu-section" id="menu">
         <div className="container">
-          <div className="menu-header">
-            <div className="section-label reveal">
-              {site.projectsSection.eyebrow}
+          <div className="menu-top reveal">
+            <div className="menu-header menu-header--left">
+              <div className="section-label">
+                <span className="section-label-dot" aria-hidden="true" />
+                PROJECT CATALOG
+              </div>
+              <h2 className="section-title section-title--catalog">
+                精选项目 / <em>Selected Projects</em>
+              </h2>
+              <p className="menu-sub">{site.projectsSection.subtitle}</p>
             </div>
-            <h2
-              className="section-title reveal"
-              style={{ transitionDelay: '.08s' }}
-            >
-              {site.projectsSection.title.split(' / ')[0]}{' '}
-              <em>Selected</em>
-              <br />
-              Projects
-            </h2>
-          </div>
 
-          <div
-            className="cat-filter reveal"
-            style={{ transitionDelay: '.15s' }}
-          >
-            <button type="button" className="cat-btn active" data-filter="all">
-              全部
-            </button>
-            <button type="button" className="cat-btn" data-filter="setbite">
-              RepPlate食练记
-            </button>
-            <button type="button" className="cat-btn" data-filter="bilingual">
-              Bilingual
-            </button>
+            <div className="cat-filter cat-filter--tray">
+              <button type="button" className="cat-btn active" data-filter="all">
+                全部
+              </button>
+              <button type="button" className="cat-btn" data-filter="setbite">
+                RepPlate食练记
+              </button>
+              <button type="button" className="cat-btn" data-filter="bilingual">
+                Bilingual
+              </button>
+            </div>
           </div>
 
           <div className="menu-grid" id="menuGrid">
@@ -196,25 +195,32 @@ export function HomePage() {
                 <div className="card-promo-overlay">
                   <PromoPhoneStrip items={setbitePhones} size="sm" limit={4} />
                 </div>
-                <span className="card-cat-badge">iOS</span>
+                <span className="card-cat-badge">iOS APP · NATIVE</span>
+                <span className="card-stack-badge">SwiftData + LLM</span>
               </div>
               <div className="card-body">
+                <div className="card-meta-row">
+                  <span className="card-index">PROJECT {setbite.index}</span>
+                  <span className="card-meta-sep">/</span>
+                  <span className="card-meta-date">{setbite.timeline}</span>
+                </div>
                 <div className="card-header">
                   <span className="card-name">{setbite.title}</span>
-                  <span className="card-price">{setbite.index}</span>
                 </div>
+                <p className="card-kicker">iOS 饮食与运动管理助手</p>
                 <p className="card-desc">{setbite.summary}</p>
                 <div className="card-chips">
-                  {setbite.tags.slice(0, 2).map((t) => (
+                  {setbite.tags.slice(0, 4).map((t) => (
                     <span key={t} className="card-chip chip-gf">
                       {t}
                     </span>
                   ))}
                 </div>
-                <div className="card-footer">
-                  <Link to={`/projects/${setbite.id}`} className="add-btn">
-                    查看详情
+                <div className="card-footer card-footer--case">
+                  <Link to={`/projects/${setbite.id}`} className="case-link">
+                    查看案例研究 →
                   </Link>
+                  <span className="card-of">01 OF 02</span>
                 </div>
               </div>
             </div>
@@ -230,25 +236,32 @@ export function HomePage() {
                   alt={bilingual.shortTitle}
                   loading="lazy"
                 />
-                <span className="card-cat-badge">Extension</span>
+                <span className="card-cat-badge">CHROME EXTENSION · MV3</span>
+                <span className="card-stack-badge">TypeScript + Stream LLM</span>
               </div>
               <div className="card-body">
+                <div className="card-meta-row">
+                  <span className="card-index">PROJECT {bilingual.index}</span>
+                  <span className="card-meta-sep">/</span>
+                  <span className="card-meta-date">{bilingual.timeline}</span>
+                </div>
                 <div className="card-header">
                   <span className="card-name">{bilingual.title}</span>
-                  <span className="card-price">{bilingual.index}</span>
                 </div>
+                <p className="card-kicker">网页沉浸式双语对照阅读</p>
                 <p className="card-desc">{bilingual.summary}</p>
                 <div className="card-chips">
-                  {bilingual.tags.slice(0, 2).map((t) => (
+                  {bilingual.tags.slice(0, 4).map((t) => (
                     <span key={t} className="card-chip chip-gf">
                       {t}
                     </span>
                   ))}
                 </div>
-                <div className="card-footer">
-                  <Link to={`/projects/${bilingual.id}`} className="add-btn">
-                    查看详情
+                <div className="card-footer card-footer--case">
+                  <Link to={`/projects/${bilingual.id}`} className="case-link">
+                    查看案例研究 →
                   </Link>
+                  <span className="card-of">02 OF 02</span>
                 </div>
               </div>
             </div>
@@ -272,64 +285,84 @@ export function HomePage() {
 
       <section className="info-section" id="info">
         <div className="container">
-          <div className="info-grid">
-            <div className="reveal-left">
-              <div className="info-logo">
-                胡馨月<span> / Portfolio</span>
+          <div className="section-label reveal" style={{ marginBottom: 28 }}>
+            <span className="section-label-dot" aria-hidden="true" />
+            ABOUT THE BUILDER
+          </div>
+          <div className="about-grid">
+            <div className="about-bio reveal-left">
+              <div className="about-bio-head">
+                <div className="about-avatar" aria-hidden="true">
+                  胡
+                </div>
+                <div>
+                  <h3 className="about-name">胡馨月 (Ocean Hu)</h3>
+                  <p className="about-role">{site.profile.status}</p>
+                </div>
               </div>
-              <p className="info-tagline">{site.profile.bio[0]}</p>
-              <p className="info-tagline" style={{ marginTop: 12 }}>
-                {site.profile.bio[1]}
+              <p className="about-lead">
+                喜欢在人与 AI 协作里找真实痛点，做成自己天天能用的小闭环——克制一点、温润一点，不堆虚概念。
               </p>
-            </div>
-            <div className="reveal" style={{ transitionDelay: '.1s' }}>
-              <div className="info-title">联系方式</div>
-              <ul className="info-list">
+              <ul className="about-points">
                 <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  {site.footerNote}
-                  <br />
-                  常驻悉尼 · 也在京沪深杭之间
+                  <strong>技术栈与实践：</strong>
+                  {site.profile.bio[1]}
                 </li>
                 <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2A19.8 19.8 0 013.08 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                  18536805799（电话 / 微信）
+                  <strong>设计与工程：</strong>
+                  工具型产品的克制与温润；把结构化数据和生活流程打通。
                 </li>
                 <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                  xihu0989@uni.sydney.edu.au
+                  <strong>学业背景：</strong>
+                  悉尼大学 BAC · Dalyell Scholar · WAM 83.5。
                 </li>
               </ul>
             </div>
-            <div className="reveal" style={{ transitionDelay: '.2s' }}>
-              <div className="info-title">一点背景</div>
-              <div className="hours-row">
-                <strong>学校</strong>
-                <span className="open">Usyd BAC · Dalyell</span>
+
+            <div className="about-side">
+              <div className="about-contact reveal" style={{ transitionDelay: '.08s' }}>
+                <div className="info-title">联系我</div>
+                <ul className="about-contact-list">
+                  <li>
+                    <span className="about-contact-label">大学邮箱</span>
+                    <a href="mailto:xihu0989@uni.sydney.edu.au">
+                      xihu0989@uni.sydney.edu.au
+                    </a>
+                  </li>
+                  <li>
+                    <span className="about-contact-label">GitHub</span>
+                    <a
+                      href="https://github.com/OceanHu123"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      github.com/OceanHu123
+                    </a>
+                  </li>
+                  <li>
+                    <span className="about-contact-label">微信 / 电话</span>
+                    <span>18536805799</span>
+                  </li>
+                </ul>
+                <a
+                  href={site.profile.resumeHref}
+                  className="about-resume"
+                  download
+                >
+                  查看完整简历 PDF
+                </a>
               </div>
-              <div className="hours-row">
-                <strong>日常</strong>
-                <span className="open">Cursor / Claude</span>
-              </div>
-              <div className="hours-row">
-                <strong>在做</strong>
-                <span>AI 应用 / 小闭环</span>
-              </div>
-              <div className="hours-row">
-                <strong>简历</strong>
-                <span>
-                  <a href={site.profile.resumeHref} download>
-                    PDF 下载
-                  </a>
-                </span>
+              <div
+                className="about-standing reveal"
+                style={{ transitionDelay: '.16s' }}
+              >
+                <div className="about-standing-label">ACADEMIC STANDING</div>
+                <div className="about-standing-title">
+                  悉尼大学 · Dalyell Scholar
+                </div>
+                <div className="about-standing-sub">
+                  Bachelor of Advanced Computing · 常驻悉尼
+                </div>
               </div>
             </div>
           </div>
