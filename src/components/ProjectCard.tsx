@@ -1,27 +1,30 @@
 import { Link } from 'react-router-dom'
 import type { Project } from '../content/projects'
 import { Icon } from './Icon'
-import { SetBiteCardPreview } from './SetBiteCardPreview'
+import { RepPlateAppFrame } from './RepPlateAppFrame'
 
 export function ProjectCard({ project }: { project: Project }) {
-  const isSetBite = project.id === 'setbite'
+  const isRepPlate = project.id === 'setbite'
   const phoneGallery = project.gallery.filter((g) => g.aspect === 'phone')
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl bg-ivory-soft shadow-[0_10px_25px_-8px_rgba(60,48,35,0.06)] transition-all duration-300 hover:-translate-y-1.5">
       <Link to={`/projects/${project.id}`} className="flex h-full flex-col">
         <div className="relative aspect-video w-full overflow-hidden bg-stone">
-          <img
-            src={project.cardImage}
-            alt={project.shortTitle}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+          {isRepPlate && phoneGallery.length > 0 ? (
+            <div className="flex h-full items-end justify-center bg-gradient-to-b from-[#f7f4ef] to-[#efe8dc] px-4 pb-2 pt-3">
+              <RepPlateAppFrame items={phoneGallery} size="sm" />
+            </div>
+          ) : (
+            <img
+              src={project.cardImage}
+              alt={project.shortTitle}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
           <span className="absolute top-4 left-4 z-10 rounded-md bg-ivory/90 px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-charcoal backdrop-blur-sm">
             {project.cardTag}
           </span>
-          {isSetBite && phoneGallery.length > 0 ? (
-            <SetBiteCardPreview items={phoneGallery} />
-          ) : null}
         </div>
         <div className="flex flex-1 flex-col justify-between space-y-5 p-6">
           <div className="space-y-2.5">

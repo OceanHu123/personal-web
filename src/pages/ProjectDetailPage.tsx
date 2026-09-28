@@ -138,7 +138,7 @@ export function ProjectDetailPage() {
             <PhoneGallery
               items={phoneItems}
               title="界面展示 · App Store 宣传图"
-              subtitle="五张中文真机界面并排呈现（横向滑动浏览）。素材来自 Apple Store 宣传图，非网页占位图。"
+              subtitle="五张中文真机界面并排呈现（横向滑动浏览）。素材来自 Apple Store 宣传图；首页用 App UI 外框承载同一组图。"
             />
           </Reveal>
         ) : (
@@ -324,10 +324,11 @@ export function ProjectDetailPage() {
           </div>
         </section>
       ) : (
-        /* SetBite: secondary strip reminder under narrative — phone gallery already shown above */
+        /* RepPlate: secondary strip reminder under narrative — phone gallery already shown above */
         <Reveal>
           <div className="rounded-2xl border border-border/70 bg-ivory-soft/80 px-6 py-5 text-[14px] leading-[22px] text-taupe">
-            上方五屏为 Apple Store 中文宣传图合集；首页项目卡同步展示缩略条，便于一眼看到完整产品路径。
+            上方五屏为 Apple Store 中文宣传图合集；首页精选区用 App UI
+            外框（今日 / 吃·练）承载同一组宣传图横滑条。
           </div>
         </Reveal>
       )}

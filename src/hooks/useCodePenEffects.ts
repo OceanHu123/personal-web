@@ -138,6 +138,16 @@ export function useCodePenEffects(enabled: boolean) {
       setbite: 'setbite',
       bilingual: 'bilingual',
     }
+    const scrollOrGoHome = (sectionId: string) => {
+      const el = document.getElementById(sectionId)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+        return true
+      }
+      window.location.assign(`/#${sectionId}`)
+      return false
+    }
+
     navLinks.forEach((a) => {
       const handler = (e: Event) => {
         e.preventDefault()
@@ -145,15 +155,16 @@ export function useCodePenEffects(enabled: boolean) {
         a.classList.add('active')
         const cat = a.dataset.cat || ''
         if (cat === 'contact') {
-          document.getElementById('info')?.scrollIntoView({ behavior: 'smooth' })
+          scrollOrGoHome('info')
           return
         }
         if (cat === 'setbite') {
-          document.getElementById('special')?.scrollIntoView({ behavior: 'smooth' })
-          // also sync project filter to 食练记 when arriving via nav
-          filterBtns.forEach((b) => {
-            if (b.dataset.filter === 'setbite') onFilterClick(b)
-          })
+          const onHome = scrollOrGoHome('special')
+          if (onHome) {
+            filterBtns.forEach((b) => {
+              if (b.dataset.filter === 'setbite') onFilterClick(b)
+            })
+          }
           return
         }
         const filterVal = catMap[cat]
@@ -162,7 +173,7 @@ export function useCodePenEffects(enabled: boolean) {
             if (b.dataset.filter === filterVal) onFilterClick(b)
           })
         }
-        document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })
+        scrollOrGoHome('menu')
       }
       a.addEventListener('click', handler)
       cleanups.push(() => a.removeEventListener('click', handler))

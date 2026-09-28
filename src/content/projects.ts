@@ -62,13 +62,13 @@ export const projects: Project[] = [
     index: '01',
     systemId: 'SETBITE_IOS',
     version: '独立开发 · 自用闭环',
-    title: '食练记（SetBite）',
-    shortTitle: '食练记 · iOS 饮食与训练',
+    title: 'RepPlate食练记',
+    shortTitle: 'RepPlate食练记 · iOS 饮食与训练',
     cardTag: '01 // iOS · LLM 导入',
     summary:
       '将食谱、营养与力量训练收成一条用户路径，并把 LLM 接入真实 AI 食谱导入流程。',
     description:
-      'iOS App（简历亦称 SetBite / 餐练记；本地仓库产品名 RepPlate 食练记）。独立完成食谱库、购物清单、训练计划、会话记录等核心模块，对接 DeepSeek API 完成「自然语言 → 结构化 JSON → 本地入库」闭环；SwiftData 本地持久化，密钥与隐私不落库、不进仓库；Live Activity / Dynamic Island 实现训练休息计时。',
+      'iOS App RepPlate食练记（曾用名 SetBite）。独立完成食谱库、购物清单、训练计划、会话记录等核心模块，对接 DeepSeek API 完成「自然语言 → 结构化 JSON → 本地入库」闭环；SwiftData 本地持久化，密钥与隐私不落库、不进仓库；Live Activity / Dynamic Island 实现训练休息计时。',
     tags: ['SwiftUI', 'SwiftData', 'DeepSeek API', 'HealthKit'],
     cardImage: '/images/setbite-card.jpg',
     heroImage: '/images/setbite-hero.jpg',
@@ -121,35 +121,35 @@ export const projects: Project[] = [
     gallery: [
       {
         src: '/images/setbite/01-eat-home.png',
-        alt: '食练记今日饮食首页 · Apple Store 宣传图',
+        alt: 'RepPlate食练记今日饮食首页 · Apple Store 宣传图',
         captionLabel: '01 · EAT HOME',
         caption: '今日饮食：热量与宏量记录入口',
         aspect: 'phone',
       },
       {
         src: '/images/setbite/02-train-home.png',
-        alt: '食练记训练首页 · Apple Store 宣传图',
+        alt: 'RepPlate食练记训练首页 · Apple Store 宣传图',
         captionLabel: '02 · TRAIN HOME',
         caption: '训练首页：计划与会话入口',
         aspect: 'phone',
       },
       {
         src: '/images/setbite/03-food-search.png',
-        alt: '食练记食物搜索 · Apple Store 宣传图',
+        alt: 'RepPlate食练记食物搜索 · Apple Store 宣传图',
         captionLabel: '03 · FOOD SEARCH',
         caption: '食物搜索与营养检索',
         aspect: 'phone',
       },
       {
         src: '/images/setbite/04-recipes.png',
-        alt: '食练记食谱库 · Apple Store 宣传图',
+        alt: 'RepPlate食练记食谱库 · Apple Store 宣传图',
         captionLabel: '04 · RECIPES',
         caption: '食谱库与导入相关界面',
         aspect: 'phone',
       },
       {
         src: '/images/setbite/05-workout-plan.png',
-        alt: '食练记训练计划 · Apple Store 宣传图',
+        alt: 'RepPlate食练记训练计划 · Apple Store 宣传图',
         captionLabel: '05 · WORKOUT PLAN',
         caption: '训练计划与力量编排',
         aspect: 'phone',
@@ -243,7 +243,7 @@ export const projects: Project[] = [
       },
     ],
     nextId: 'setbite',
-    nextLabel: '回到首个项目 // NEXT: 食练记 →',
+    nextLabel: '回到首个项目 // NEXT: RepPlate食练记 →',
   },
 ]
 

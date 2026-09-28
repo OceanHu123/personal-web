@@ -29,12 +29,12 @@ npm run lint     # 代码检查
 
 - 站点文案 / 个人简介：`src/content/site.ts`
 - 项目列表与详情：`src/content/projects.ts`
-- 图片：`public/images/`（食练记 Apple Store 五屏在 `public/images/setbite/`；双语扩展品牌卡等）
+- 图片：`public/images/`（RepPlate食练记 Apple Store 五屏在 `public/images/setbite/`；双语扩展品牌卡等）
 - 简历 PDF：`public/resume/`
 
-当前内容已按桌面「简历_投递用」与本地项目材料替换（胡馨月 · 食练记 / Bilingual Translate），不再使用 Your Name / Project Alpha 等占位。
+当前内容已按桌面「简历_投递用」与本地项目材料替换（胡馨月 · RepPlate食练记 / Bilingual Translate），不再使用 Your Name / Project Alpha 等占位。
 
-食练记详情页为横向手机框合集（scroll-snap）；素材仅复制宣传图 PNG，不会把整个 Desktop 文件夹挂成 public 树。
+RepPlate食练记详情页为横向手机框合集（scroll-snap）；素材仅复制宣传图 PNG，不会把整个 Desktop 文件夹挂成 public 树。
 
 ## 手动部署到 Vercel（大白话）
 
@@ -51,7 +51,7 @@ AI **不会**替你点发布。你自己操作：
 
 ## 页面怎么检查
 
-1. 打开首页：应看到 Shore-Shack 风格导航 / Hero / 波浪分割 / 精选食练记 / 可筛选卡片网格 + 鼠标跟随圆点光标（桌面）。
+1. 打开首页：应看到 Shore-Shack 风格导航 / Hero / 波浪分割 / 精选 RepPlate食练记 / 可筛选卡片网格 + 鼠标跟随圆点光标（桌面）。
 2. 点「查看详情」进入 `/projects/setbite`，横向滑动五屏 App Store 宣传图；顶栏恢复站点 Header。
 3. 刷新详情页地址应仍能打开；返回首页光标与笔 UI 仍在。
 4. 点「下载简历」应能打开 `public/resume/` 下的 PDF。

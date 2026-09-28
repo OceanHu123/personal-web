@@ -1,21 +1,18 @@
 import { Link } from 'react-router-dom'
 import { site } from '../content/site'
 import { projects } from '../content/projects'
-import { useCodePenEffects } from '../hooks/useCodePenEffects'
+import { RepPlateAppFrame } from '../components/RepPlateAppFrame'
 import '../styles/codepen-KwNNyjg.css'
 
 /**
- * Home built on CodePen KwNNyjg UI + cursor (jerora98).
- * Markup/structure follows vendor/codepen-KwNNyjg/html.html;
- * copy mapped to 胡馨月 content — no invented achievements.
+ * Home built on CodePen KwNNyjg UI (jerora98).
+ * Nav/cursor live in SiteChrome; this page owns sections only.
  */
 export function HomePage() {
-  useCodePenEffects(true)
-
   const setbite = projects.find((p) => p.id === 'setbite')!
   const bilingual = projects.find((p) => p.id === 'bilingual')!
-  const setbitePhone = setbite.gallery.find((g) => g.aspect === 'phone')
   const bilingualImg = bilingual.cardImage
+  const setbitePhones = setbite.gallery.filter((g) => g.aspect === 'phone')
 
   const marqueeItems = [
     'AI 应用落地',
@@ -30,56 +27,6 @@ export function HomePage() {
 
   return (
     <div className="codepen-home">
-      {/* Credit: CodePen KwNNyjg · jerora98 · cursor + UI structure */}
-      <div id="cur" aria-hidden="true" />
-      <div id="cur-ring" aria-hidden="true" />
-
-      <nav id="main-nav">
-        <a href="#top" className="nav-logo">
-          胡馨月<span> / Portfolio</span>
-        </a>
-        <ul className="nav-cats" id="nav-cats">
-          <li>
-            <a href="#menu" className="active" data-cat="projects">
-              项目
-            </a>
-          </li>
-          <li>
-            <a href="#special" data-cat="setbite">
-              食练记
-            </a>
-          </li>
-          <li>
-            <a href="#menu" data-cat="bilingual">
-              Bilingual
-            </a>
-          </li>
-          <li>
-            <a href="#info" data-cat="contact">
-              联系
-            </a>
-          </li>
-        </ul>
-        <a href={site.profile.resumeHref} className="nav-cta" download>
-          {site.profile.resumeLabel}
-        </a>
-        <button type="button" className="hamburger" aria-label="菜单">
-          <span />
-          <span />
-          <span />
-        </button>
-      </nav>
-
-      <div className="mobile-nav" id="mobileNav">
-        <a href="#menu">项目</a>
-        <a href="#special">食练记</a>
-        <a href="#menu">Bilingual</a>
-        <a href="#info">联系</a>
-        <a href={site.profile.resumeHref} className="mob-cta" download>
-          下载简历
-        </a>
-      </div>
-
       <main className="hero" id="top">
         <div className="hero-bg-img" />
         <div className="hero-content">
@@ -157,9 +104,9 @@ export function HomePage() {
           <div className="reveal-left">
             <div className="special-label">{setbite.cardTag}</div>
             <h2 className="special-title">
-              食练记 <em>SetBite</em>
+              RepPlate食练记
               <br />
-              iOS 饮食与训练
+              <em>iOS 饮食与训练</em>
             </h2>
             <p className="special-desc">{setbite.description}</p>
             <div className="special-price">
@@ -179,12 +126,8 @@ export function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="special-img reveal">
-            <img
-              src={setbitePhone?.src ?? setbite.cardImage}
-              alt={setbitePhone?.alt ?? setbite.shortTitle}
-              loading="lazy"
-            />
+          <div className="special-img special-img--app-frame reveal">
+            <RepPlateAppFrame items={setbitePhones} size="lg" />
             <div className="special-img-badge">
               {setbite.state} · {setbite.geometry}
             </div>
@@ -231,7 +174,7 @@ export function HomePage() {
               全部
             </button>
             <button type="button" className="cat-btn" data-filter="setbite">
-              食练记
+              RepPlate食练记
             </button>
             <button type="button" className="cat-btn" data-filter="bilingual">
               Bilingual
@@ -240,12 +183,8 @@ export function HomePage() {
 
           <div className="menu-grid" id="menuGrid">
             <div className="menu-card reveal" data-cat="setbite">
-              <div className="card-img-wrap">
-                <img
-                  src={setbite.cardImage}
-                  alt={setbite.shortTitle}
-                  loading="lazy"
-                />
+              <div className="card-img-wrap card-img-wrap--app-frame">
+                <RepPlateAppFrame items={setbitePhones} size="sm" />
                 <span className="card-cat-badge">iOS</span>
               </div>
               <div className="card-body">
@@ -342,7 +281,7 @@ export function HomePage() {
                   </svg>
                   {site.footerNote}
                   <br />
-                  目标城市：北京 / 上海 / 深圳 / 杭州 / 远程
+                  常驻悉尼 · 也在京沪深杭之间
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -360,18 +299,18 @@ export function HomePage() {
               </ul>
             </div>
             <div className="reveal" style={{ transitionDelay: '.2s' }}>
-              <div className="info-title">实习窗口</div>
+              <div className="info-title">一点背景</div>
               <div className="hours-row">
-                <strong>可全职实习</strong>
-                <span className="open">2026.12 – 2027.02</span>
+                <strong>学校</strong>
+                <span className="open">Usyd BAC · Dalyell</span>
               </div>
               <div className="hours-row">
-                <strong>时长</strong>
-                <span className="open">约 12 周</span>
+                <strong>日常</strong>
+                <span className="open">Cursor / Claude</span>
               </div>
               <div className="hours-row">
-                <strong>方向</strong>
-                <span>AI 应用 / Agent 工程</span>
+                <strong>在做</strong>
+                <span>AI 应用 / 小闭环</span>
               </div>
               <div className="hours-row">
                 <strong>简历</strong>
@@ -407,7 +346,7 @@ export function HomePage() {
         </p>
         <ul className="footer-links">
           <li>
-            <Link to="/projects/setbite">食练记</Link>
+            <Link to="/projects/setbite">RepPlate食练记</Link>
           </li>
           <li>
             <Link to="/projects/bilingual">Bilingual</Link>

@@ -1,0 +1,341 @@
+/* RepPlate 食练记 — App UI presentation chrome around promo gallery strip.
+ * Chrome inspired by 今日 dashboard (header + 吃/练 tab); content = Store promos.
+ */
+/* Higher specificity so CodePen `.codepen-home * { padding:0; margin:0 }` does not wipe chrome. */
+.repplate-frame {
+  --rp-cream: #f7f4ef;
+  --rp-ink: #1c1b19;
+  --rp-muted: #8a8680;
+  --rp-coral: #e85a3c;
+  --rp-coral-soft: #f8e8e3;
+  --rp-blue: #3b96f5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.codepen-home .repplate-frame,
+.codepen-home .repplate-frame * {
+  box-sizing: border-box;
+}
+
+.repplate-frame__phone {
+  position: relative;
+  width: min(100%, 320px);
+  aspect-ratio: 9 / 19.2;
+  border-radius: 2.15rem;
+  background: var(--rp-cream);
+  box-shadow:
+    0 0 0 1px rgba(44, 44, 42, 0.08),
+    0 28px 56px -20px rgba(44, 44, 42, 0.28);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.repplate-frame--sm .repplate-frame__phone {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 9 / 14;
+  border-radius: 1.25rem;
+}
+
+.repplate-frame__status,
+.codepen-home .repplate-frame__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px 2px;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--rp-ink);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.repplate-frame--sm .repplate-frame__status {
+  padding: 6px 12px 0;
+  font-size: 9px;
+}
+
+.repplate-frame__status-icons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  opacity: 0.75;
+}
+
+.repplate-frame__status-icons span {
+  display: block;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--rp-ink);
+}
+
+.repplate-frame__status-icons .sig {
+  width: 14px;
+}
+.repplate-frame__status-icons .wifi {
+  width: 11px;
+}
+.repplate-frame__status-icons .bat {
+  width: 18px;
+  height: 9px;
+  border: 1.5px solid var(--rp-ink);
+  background: transparent;
+  position: relative;
+}
+.repplate-frame__status-icons .bat::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  width: 2px;
+  height: 4px;
+  background: var(--rp-ink);
+  border-radius: 0 1px 1px 0;
+}
+
+.repplate-frame__header,
+.codepen-home .repplate-frame__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 18px 10px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.repplate-frame--sm .repplate-frame__header {
+  padding: 2px 12px 6px;
+}
+
+.repplate-frame__title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--rp-ink);
+  line-height: 1.1;
+}
+
+.repplate-frame--sm .repplate-frame__title {
+  font-size: 16px;
+}
+
+.repplate-frame__more {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--rp-muted);
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.repplate-frame--sm .repplate-frame__more {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+.repplate-frame__gallery,
+.codepen-home .repplate-frame__gallery {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 10px 72px;
+  margin: 0;
+}
+
+.repplate-frame__gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.repplate-frame--sm .repplate-frame__gallery {
+  padding: 0 6px 48px;
+  pointer-events: none;
+}
+
+.repplate-frame__promo {
+  flex: 0 0 82%;
+  scroll-snap-align: center;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 24px -12px rgba(44, 44, 42, 0.22);
+  margin-right: 10px;
+}
+
+.repplate-frame--sm .repplate-frame__promo {
+  flex: 0 0 48%;
+  border-radius: 0.65rem;
+  margin-right: 6px;
+}
+
+.repplate-frame__promo:last-child {
+  margin-right: 10px;
+}
+
+.repplate-frame__promo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  aspect-ratio: 9 / 19.5;
+}
+
+.repplate-frame--sm .repplate-frame__promo img {
+  aspect-ratio: 9 / 16;
+}
+
+.repplate-frame__dock,
+.codepen-home .repplate-frame__dock {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 16px 14px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(
+    to top,
+    rgba(247, 244, 239, 0.98) 55%,
+    rgba(247, 244, 239, 0)
+  );
+  pointer-events: none;
+}
+
+.repplate-frame--sm .repplate-frame__dock {
+  padding: 0 10px 8px;
+  gap: 6px;
+}
+
+.repplate-frame__cta,
+.codepen-home .repplate-frame__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--rp-coral);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 22px;
+  margin: 0;
+  border-radius: 999px;
+  box-shadow: 0 10px 22px -8px rgba(232, 90, 60, 0.55);
+}
+
+.repplate-frame--sm .repplate-frame__cta {
+  font-size: 10px;
+  padding: 6px 12px;
+}
+
+.repplate-frame__tabs,
+.codepen-home .repplate-frame__tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px;
+  margin: 0;
+  box-shadow: 0 8px 28px -10px rgba(44, 44, 42, 0.28);
+  border: 1px solid rgba(44, 44, 42, 0.06);
+}
+
+.repplate-frame--sm .repplate-frame__tabs {
+  padding: 3px;
+}
+
+.repplate-frame__tab,
+.codepen-home .repplate-frame__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  margin: 0;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rp-muted);
+  background: transparent;
+}
+
+.repplate-frame--sm .repplate-frame__tab {
+  padding: 5px 10px;
+  font-size: 10px;
+  gap: 4px;
+}
+
+.repplate-frame__tab.is-active {
+  background: var(--rp-coral-soft);
+  color: var(--rp-coral);
+}
+
+.repplate-frame__tab-icon {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.repplate-frame--sm .repplate-frame__tab-icon {
+  width: 12px;
+  height: 12px;
+  font-size: 9px;
+}
+
+/* Homepage special block: phone frame instead of flat 4/3 crop */
+.codepen-home .special-img.special-img--app-frame {
+  aspect-ratio: auto;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 420px;
+}
+
+.codepen-home .special-img.special-img--app-frame .special-img-badge {
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.codepen-home .card-img-wrap.card-img-wrap--app-frame {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(160deg, #f7f4ef, #efe8dc);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 12px 12px 10px;
+}
+
+.codepen-home .card-img-wrap.card-img-wrap--app-frame > img {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .codepen-home .special-img.special-img--app-frame {
+    min-height: 360px;
+  }
+  .repplate-frame__phone {
+    width: min(100%, 280px);
+  }
+}
