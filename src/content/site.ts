@@ -1,58 +1,57 @@
-/** 站点级占位内容 — 与组件分离，后续用真实资料替换 */
+/** 站点级内容 — 来自简历材料与本地项目，未虚构 */
 
 export const site = {
-  brand: 'YN / PORTFOLIO',
+  brand: '胡馨月 / PORTFOLIO',
   draftBadge: 'VISION DRAFT 1 — V2',
-  availableLabel: '可承接合作 (Available)',
-  footerCopy: '© 2025 YN DESIGN ENGINEERING · WARM CLEAR TECH',
-  footerNote: 'DESKTOP 1440PX REFERENCE',
-  signature: 'Bright open tech — warm, not cold · 温暖清透，澄心笃行',
+  availableLabel: '2026.12 起可全职实习',
+  footerCopy: '© 2026 胡馨月 · WARM CLEAR TECH',
+  footerNote: 'SYDNEY · BAC · DALYELL',
+  signature: '明亮开放 · 温暖清透 · 轻盈科技',
   hero: {
-    motifLabel: 'WARM CLEAR TECH / 晨光折射',
-    coord: 'SYS.COORD: 34.0522° N, 118.2437° W',
-    lightDelta: 'WARM_DAYLIGHT',
-    refraction: '1.48 RI',
-    photonsLabel: '光子采样 / Photons',
-    photonsValue: '4,096 SPP · 澄澈漫射',
-    realtime: 'REAL-TIME',
-    keywords: '明亮开放 · 温暖清透 · 轻盈科技',
-    titleBefore: '在架构、代码与',
-    titleAccent: '空间美学',
-    titleAfter: '的交汇处构筑体验',
-    body: 'Human-first technology, designed for clarity and calm. 我们以画廊般的留白与微透日光为基底，摒弃冰冷死板的机器感，用精严的算法逻辑与流动的质感，为数字工具注入自然呼吸与亲和力量。',
-    interactionHint:
-      '[交互意图: 随页面滚动触发晶体多维光线折射与 3D 几何形变 / Scroll-linked 3D-like rotation & transformation plane]',
+    keywords: 'AI 应用 · Agent 落地 · 端到端 Demo',
+    titleBefore: '把模型能力推进',
+    titleAccent: '真实用户流程',
+    titleAfter: '，做成可演示闭环',
+    body: '悉尼大学 BAC · Dalyell Scholar。日常重度使用 Cursor / Claude 等 Coding Agent，理解上下文管理与工具调用失败等真实痛点；独立完成过 Chrome 扩展与 iOS App，擅长把「自然语言 → 结构化输出 → 本地入库」落到可自用、可演示的小闭环。',
     ctaProjects: '浏览精选项目',
     sunlitMode: '日光模式 (Sunlit Mode)',
-    motifImage: '/images/motif-crystal.jpg',
-    motifAlt:
-      '暖清透晶体球体与琥珀色玻璃环，晨光折射，象牙色背景',
   },
   profile: {
     label: 'PROFILE / CREATOR',
-    name: 'Your Name',
-    status: '可承接 2025 Q3 深度合作',
-    role: '设计工程师 (Designer / Engineer) — 专注于设计系统、三维空间交互与前端高性能编译体系。',
+    name: '胡馨月',
+    status: '可实习：2026.12 – 2027.02（约 12 周全职）',
+    role: 'AI 应用开发 / Agent 工程 · 悉尼大学 Bachelor of Advanced Computing · Dalyell Scholar · 大一',
     tags: [
-      { icon: 'speed', text: '刷新率: 60FPS 目标' },
-      { icon: 'memory', text: '内存架构: 零泄漏' },
-      { icon: 'verified', text: 'Type-Safe Tokens' },
+      { icon: 'verified', text: 'WAM 83.5 / 100' },
+      { icon: 'terminal', text: 'Cursor / Claude 重度用户' },
+      { icon: 'code', text: '中英双语流利' },
     ],
     bio: [
-      '致力于探索交互计算、设计工程与温暖清透的数字产品界面。我们通过开放直观的工具赋予创作灵感，在严密的工程约束与细腻的人性化体验之间找到最佳平衡。',
-      '以建筑学视角的严谨秩序与现代前端运行时的高阶性能相融合，打通从微观 Token 变量到宏观 3D WebGL 画布的流畅转化，打造兼具呼吸感与稳定性的全域数字产品体验。',
+      '目标城市：北京 / 上海 / 深圳 / 杭州 / 远程。理解 LLM、结构化输出、Tool Use / Agent 基本概念；有「模型输出 → 入库」落地经验，适合 AI 应用落地与小闭环验证。',
+      '前端：TypeScript / JavaScript / HTML / CSS，独立开发过 Chrome 扩展；客户端：Swift / SwiftUI / SwiftData，独立开发过 iOS App（含 Live Activity）。工程工具：Git / GitHub、Vite、Xcode。',
     ],
     links: [
-      { label: '电子邮箱 (Email) ↗', href: 'mailto:contact@domain.com' },
-      { label: 'GitHub ↗', href: '#' },
-      { label: 'LinkedIn ↗', href: '#' },
+      {
+        label: '电子邮箱 (Email) ↗',
+        href: 'mailto:xihu0989@uni.sydney.edu.au',
+      },
+      {
+        label: 'GitHub ↗',
+        href: 'https://github.com/OceanHu123',
+      },
+      {
+        label: '电话 / 微信',
+        href: 'tel:18536805799',
+      },
     ],
     resumeLabel: '下载简历 (Resume PDF)',
-    resumeHref: '#',
+    resumeHref: '/resume/胡馨月_AI_Agent开发.pdf',
+    /** 简历文件夹无清晰人像；头像留空，沿用顶栏图标 */
+    avatarSrc: '' as string,
   },
   projectsSection: {
     eyebrow: 'PORTFOLIO SHOWCASE',
     title: '精选项目 / Selected Projects',
-    subtitle: '01 — 03 / 点击进入独立项目详情页，查看完整架构与设计复盘',
+    subtitle: '01 — 02 / 点击进入独立项目详情页，查看问题、方案与落地说明',
   },
 } as const

@@ -12,12 +12,12 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 z-50 w-full border-b border-border/60 bg-ivory/90 shadow-[0_4px_20px_-10px_rgba(60,48,35,0.05)] backdrop-blur-md">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-border/60 bg-ivory/85 shadow-[0_4px_20px_-10px_rgba(60,48,35,0.05)] backdrop-blur-md transition-[background-color,box-shadow] duration-500">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:px-8">
         <div className="flex items-center gap-4">
           <Link
             to="/"
-            className="group font-[family-name:var(--font-sans)] text-[16px] font-semibold tracking-tight text-charcoal transition-colors hover:text-accent"
+            className="group font-[family-name:var(--font-sans)] text-[16px] font-semibold tracking-tight text-charcoal transition-colors duration-300 hover:text-accent"
           >
             {site.brand}
           </Link>

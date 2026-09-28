@@ -1,9 +1,9 @@
 # myweb — 个人简历站点（Warm Clear Tech）
 
-本地可运行的个人简历网站：首页（科技中心图案 + 简介 + 项目入口）+ 项目详情页。  
+本地可运行的个人简历网站：首页（简介英雄区 + 个人简介 + 项目入口）+ 项目详情页。  
 视觉方向：**明亮开放 · 温暖清透 · 轻盈科技**（视觉表达卡 v2 / Stitch Vision Draft 1）。
 
-技术栈：React + TypeScript + Vite + Tailwind CSS。
+技术栈：React + TypeScript + Vite + Tailwind CSS；动效用 Lenis + GSAP ScrollTrigger + Framer Motion（轻量、可关减动）。
 
 ## 本地怎么跑
 
@@ -11,11 +11,11 @@
 
 ```bash
 npm install
-npm run dev
+npm run dev -- --host 127.0.0.1 --port 43127
 ```
 
-默认预览地址大约是：[http://127.0.0.1:43127](http://127.0.0.1:43127)  
-（若端口被占用，终端里会打印实际端口。）
+预览地址：[http://127.0.0.1:43127](http://127.0.0.1:43127)  
+或构建后再预览：`npm run build && npm run preview -- --host 127.0.0.1 --port 43127`
 
 其他常用命令：
 
@@ -27,11 +27,14 @@ npm run lint     # 代码检查
 
 ## 内容改哪里
 
-- 站点文案 / 个人简介占位：`src/content/site.ts`
+- 站点文案 / 个人简介：`src/content/site.ts`
 - 项目列表与详情：`src/content/projects.ts`
-- 图片：`public/images/`
+- 图片：`public/images/`（食练记 Apple Store 五屏在 `public/images/setbite/`；双语扩展品牌卡等）
+- 简历 PDF：`public/resume/`
 
-当前文案和图片都是 **占位示例**（Your Name / Project Alpha…），不是真实个人履历。换成你的资料时，只改内容文件和图片即可。
+当前内容已按桌面「简历_投递用」与本地项目材料替换（胡馨月 · 食练记 / Bilingual Translate），不再使用 Your Name / Project Alpha 等占位。
+
+食练记详情页为横向手机框合集（scroll-snap）；素材仅复制宣传图 PNG，不会把整个 Desktop 文件夹挂成 public 树。
 
 ## 手动部署到 Vercel（大白话）
 
@@ -48,12 +51,13 @@ AI **不会**替你点发布。你自己操作：
 
 ## 页面怎么检查
 
-1. 打开首页，看顶部导航、英雄区晶体图案、简介、三个项目卡片。
-2. 往下滚：晶体图案应有轻微旋转/位移（滚动联动）。
-3. 点「探索 Project Alpha」进入详情；再点「返回首页」或浏览器后退。
-4. 刷新详情页地址（如 `/projects/alpha`）应仍能打开，不会白屏。
+1. 打开首页，看顶部导航、文字英雄区（无晶体图）、简介（胡馨月）、两个项目卡片；慢慢滚动感受平滑滚动与区块淡入。
+2. 点「探索 食练记（SetBite）」进入详情，横向滑动五屏 App Store 宣传图；悬停手机框有轻抬。
+3. 刷新详情页地址（如 `/projects/setbite`）应仍能打开，不会白屏。
+4. 点「下载简历」应能打开 `public/resume/` 下的 PDF。
 
 ## 说明
 
-- 设计来源：Stitch 导出 `stitch_tech_portfolio_website_skeleton` + 视觉表达卡 v2；首页动势气质参考用户提供的 mp4。
+- 设计来源：Stitch 导出 `stitch_tech_portfolio_website_skeleton` + 视觉表达卡 v2。首页装饰晶体图已移除；交互灵感参考高级编辑站的顺滑感，未克隆其布局/品牌。
 - 协作规则见 `AGENTS.md`；进度见 `项目记录.md`。
+- GitHub：`https://github.com/OceanHu123/personal-web`

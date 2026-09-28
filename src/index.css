@@ -19,7 +19,21 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* Lenis owns smooth scrolling; keep native smooth off to avoid fighting */
+    scroll-behavior: auto;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
   }
 
   body {
@@ -32,5 +46,11 @@
 
   ::selection {
     background: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.lenis {
+      scroll-behavior: auto;
+    }
   }
 }
