@@ -6,11 +6,22 @@ import { useLocation } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/** Lenis smooth scroll + GSAP ScrollTrigger sync (MIT / GSAP Standard license for open-source use). */
-export function SmoothScroll({ children }: { children: ReactNode }) {
+/** Lenis smooth scroll + GSAP ScrollTrigger sync. Disabled on CodePen home (native scroll). */
+export function SmoothScroll({
+  children,
+  enabled = true,
+}: {
+  children: ReactNode
+  enabled?: boolean
+}) {
   const location = useLocation()
 
   useEffect(() => {
+    if (!enabled) {
+      document.documentElement.classList.remove('lenis')
+      return
+    }
+
     const prefersReduced = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches
@@ -42,11 +53,11 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       ScrollTrigger.getAll().forEach((t) => t.kill())
       document.documentElement.classList.remove('lenis')
     }
-  }, [])
+  }, [enabled])
 
   useEffect(() => {
-    ScrollTrigger.refresh()
-  }, [location.pathname])
+    if (enabled) ScrollTrigger.refresh()
+  }, [location.pathname, enabled])
 
   return children
 }

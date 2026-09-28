@@ -8,20 +8,20 @@ export function Layout() {
   const isHome = pathname === '/'
 
   return (
-    <SmoothScroll>
+    <SmoothScroll enabled={!isHome}>
       <div
         className={[
-          'flex min-h-screen flex-col font-[family-name:var(--font-sans)] text-charcoal antialiased transition-[background-color] duration-500',
-          isHome ? 'bg-[var(--home-atmosphere,#FAF7F2)]' : 'bg-ivory',
+          'flex min-h-screen flex-col antialiased transition-[background-color] duration-500',
+          isHome
+            ? 'bg-[var(--sand,#fdfaf5)]'
+            : 'bg-ivory font-[family-name:var(--font-sans)] text-charcoal',
         ].join(' ')}
       >
-        <Header overlay={isHome} />
+        {isHome ? null : <Header />}
         <main
           className={[
             'w-full flex-1 transition-[background-color,padding] duration-500',
-            isHome
-              ? 'bg-transparent pt-0'
-              : 'bg-ivory pt-20',
+            isHome ? 'bg-transparent p-0' : 'bg-ivory pt-20',
           ].join(' ')}
         >
           <Outlet />

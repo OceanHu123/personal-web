@@ -1,9 +1,9 @@
 # myweb — 个人简历站点（Warm Clear Tech）
 
-本地可运行的个人简历网站：首页（简介英雄区 + 个人简介 + 项目入口）+ 项目详情页。  
+本地可运行的个人简历网站：首页（CodePen UI + 自定义光标）+ 项目详情页。  
 视觉方向：**明亮开放 · 温暖清透 · 轻盈科技**（视觉表达卡 v2 / Stitch Vision Draft 1）。
 
-技术栈：React + TypeScript + Vite + Tailwind CSS；动效用 Lenis + GSAP ScrollTrigger + Framer Motion（轻量、可关减动）。
+技术栈：React + TypeScript + Vite + Tailwind CSS；首页动效来自 [CodePen KwNNyjg](https://codepen.io/jerora98/pen/KwNNyjg)（作者 jerora98 / Jerome Rassweiler）；详情页仍用 Framer Motion。原始 HTML/CSS/JS 保存在 `vendor/codepen-KwNNyjg/`。
 
 ## 本地怎么跑
 
@@ -51,10 +51,14 @@ AI **不会**替你点发布。你自己操作：
 
 ## 页面怎么检查
 
-1. 打开首页，看顶部导航、文字英雄区（无晶体图）、简介（胡馨月）、两个项目卡片；慢慢滚动感受平滑滚动与区块淡入。
-2. 点「探索 食练记（SetBite）」进入详情，横向滑动五屏 App Store 宣传图；悬停手机框有轻抬。
-3. 刷新详情页地址（如 `/projects/setbite`）应仍能打开，不会白屏。
+1. 打开首页：应看到 Shore-Shack 风格导航 / Hero / 波浪分割 / 精选食练记 / 可筛选卡片网格 + 鼠标跟随圆点光标（桌面）。
+2. 点「查看详情」进入 `/projects/setbite`，横向滑动五屏 App Store 宣传图；顶栏恢复站点 Header。
+3. 刷新详情页地址应仍能打开；返回首页光标与笔 UI 仍在。
 4. 点「下载简历」应能打开 `public/resume/` 下的 PDF。
+
+## CodePen 归属
+
+首页 UI 结构与光标逻辑改编自 [The Shore Shack — Beach Sandwich Bar Menu](https://codepen.io/jerora98/pen/KwNNyjg) by **jerora98**（Jerome Rassweiler）。原文案已替换为胡馨月真实内容； verbatim 源码见 `vendor/codepen-KwNNyjg/`。
 
 ## 说明
 
