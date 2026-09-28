@@ -4,7 +4,8 @@ import { useCodePenEffects } from '../hooks/useCodePenEffects'
 import '../styles/codepen-KwNNyjg.css'
 
 /**
- * Shared CodePen KwNNyjg chrome (fixed nav + cursor) for home and detail pages.
+ * CodePen KwNNyjg chrome (fixed nav + cursor) for the homepage only.
+ * Project detail pages use the quieter Header/Footer instead.
  */
 export function SiteChrome() {
   useCodePenEffects(true)

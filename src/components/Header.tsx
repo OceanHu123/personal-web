@@ -44,27 +44,16 @@ export function Header({ overlay = false }: HeaderProps) {
               首页
             </NavLink>
             <a
-              href="/#projects"
-              onClick={(e) => {
-                if (window.location.pathname !== '/') return
-                e.preventDefault()
-                const prefersReduced = window.matchMedia(
-                  '(prefers-reduced-motion: reduce)',
-                ).matches
-                if (prefersReduced) {
-                  document
-                    .getElementById('projects')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                  return
-                }
-                window.scrollTo({
-                  top: 2 * window.innerHeight,
-                  behavior: 'smooth',
-                })
-              }}
+              href="/#menu"
               className="rounded-lg px-3 py-1.5 font-[family-name:var(--font-sans)] text-[15px] leading-6 text-taupe transition-colors hover:bg-white/45 hover:text-charcoal"
             >
               项目
+            </a>
+            <a
+              href="/projects/setbite"
+              className="hidden rounded-lg px-3 py-1.5 font-[family-name:var(--font-sans)] text-[15px] leading-6 text-taupe transition-colors hover:bg-white/45 hover:text-charcoal md:inline"
+            >
+              RepPlate食练记
             </a>
           </nav>
 

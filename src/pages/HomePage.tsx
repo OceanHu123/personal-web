@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom'
 import { site } from '../content/site'
 import { projects } from '../content/projects'
-import { RepPlateAppFrame } from '../components/RepPlateAppFrame'
+import { PromoPhoneStrip } from '../components/PromoPhoneStrip'
 import '../styles/codepen-KwNNyjg.css'
+import '../styles/repplate-frame.css'
 
 /**
  * Home built on CodePen KwNNyjg UI (jerora98).
  * Nav/cursor live in SiteChrome; this page owns sections only.
+ * RepPlate showcase uses a light promo phone strip (not stacked App UI chrome).
  */
 export function HomePage() {
   const setbite = projects.find((p) => p.id === 'setbite')!
@@ -126,10 +128,12 @@ export function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="special-img special-img--app-frame reveal">
-            <RepPlateAppFrame items={setbitePhones} size="lg" />
+          <div className="special-img special-img--promo reveal">
+            <div className="special-promo-stage">
+              <PromoPhoneStrip items={setbitePhones} size="lg" />
+            </div>
             <div className="special-img-badge">
-              {setbite.state} · {setbite.geometry}
+              {setbite.state} · App Store 宣传图
             </div>
           </div>
         </div>
@@ -183,8 +187,15 @@ export function HomePage() {
 
           <div className="menu-grid" id="menuGrid">
             <div className="menu-card reveal" data-cat="setbite">
-              <div className="card-img-wrap card-img-wrap--app-frame">
-                <RepPlateAppFrame items={setbitePhones} size="sm" />
+              <div className="card-img-wrap card-img-wrap--promo">
+                <img
+                  src={setbite.cardImage}
+                  alt={setbite.shortTitle}
+                  loading="lazy"
+                />
+                <div className="card-promo-overlay">
+                  <PromoPhoneStrip items={setbitePhones} size="sm" limit={4} />
+                </div>
                 <span className="card-cat-badge">iOS</span>
               </div>
               <div className="card-body">

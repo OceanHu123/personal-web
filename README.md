@@ -1,7 +1,7 @@
 # myweb — 个人简历站点（Warm Clear Tech）
 
-本地可运行的个人简历网站：首页（CodePen UI + 自定义光标）+ 项目详情页。  
-视觉方向：**明亮开放 · 温暖清透 · 轻盈科技**（视觉表达卡 v2 / Stitch Vision Draft 1）。
+本地可运行的个人简历网站：首页（CodePen UI + 自定义光标）+ **干净的项目详情页**（安静顶栏，不叠 CodePen chrome）。  
+视觉方向：**明亮开放 · 温暖清透 · 轻盈科技**。下一轮可选 Stitch：**Vision Draft 2** prompt 见 `docs/stitch-prompt-from-current-home.md`（基于当前首页 regenerate）。
 
 技术栈：React + TypeScript + Vite + Tailwind CSS；首页动效来自 [CodePen KwNNyjg](https://codepen.io/jerora98/pen/KwNNyjg)（作者 jerora98 / Jerome Rassweiler）；详情页仍用 Framer Motion。原始 HTML/CSS/JS 保存在 `vendor/codepen-KwNNyjg/`。
 

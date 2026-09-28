@@ -22,11 +22,17 @@ export function Footer() {
             首页
           </Link>
           <a
-            href="/#projects"
+            href="/#menu"
             className="text-[11px] tracking-[0.04em] text-taupe transition-colors hover:text-accent"
           >
             作品集
           </a>
+          <Link
+            to="/projects/setbite"
+            className="text-[11px] tracking-[0.04em] text-taupe transition-colors hover:text-accent"
+          >
+            RepPlate食练记
+          </Link>
           <div className="h-1.5 w-1.5 rounded-full bg-stone" />
           <span className="text-[11px] tracking-[0.04em] text-taupe">
             LIGHT ARCHETYPE

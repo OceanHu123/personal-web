@@ -21,7 +21,7 @@ export function ProjectDetailPage() {
       <Reveal y={16}>
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <Link
-            to="/#projects"
+            to="/#menu"
             className="group inline-flex items-center gap-2.5 rounded-full bg-ivory-soft px-4 py-2 text-charcoal shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone"
           >
             <Icon
@@ -30,7 +30,7 @@ export function ProjectDetailPage() {
               className="text-accent transition-transform group-hover:-translate-x-1"
             />
             <span className="text-[16px] font-medium">
-              返回首页 (Back to Home / Selected Projects)
+              返回首页 (Back to Home)
             </span>
           </Link>
           <div className="inline-flex items-center gap-2 rounded-full bg-stone-soft/70 px-3 py-1.5 text-taupe">
@@ -138,7 +138,7 @@ export function ProjectDetailPage() {
             <PhoneGallery
               items={phoneItems}
               title="界面展示 · App Store 宣传图"
-              subtitle="五张中文真机界面并排呈现（横向滑动浏览）。素材来自 Apple Store 宣传图；首页用 App UI 外框承载同一组图。"
+              subtitle="五张中文真机界面并排呈现（横向滑动浏览）。素材来自 Apple Store 宣传图。"
             />
           </Reveal>
         ) : (
@@ -324,11 +324,9 @@ export function ProjectDetailPage() {
           </div>
         </section>
       ) : (
-        /* RepPlate: secondary strip reminder under narrative — phone gallery already shown above */
         <Reveal>
           <div className="rounded-2xl border border-border/70 bg-ivory-soft/80 px-6 py-5 text-[14px] leading-[22px] text-taupe">
-            上方五屏为 Apple Store 中文宣传图合集；首页精选区用 App UI
-            外框（今日 / 吃·练）承载同一组宣传图横滑条。
+            上方五屏为 Apple Store 中文宣传图合集；首页精选区用轻量手机框横条展示同一组图。
           </div>
         </Reveal>
       )}
