@@ -21,6 +21,7 @@
   html {
     /* Lenis owns smooth scrolling; keep native smooth off to avoid fighting */
     scroll-behavior: auto;
+    --home-atmosphere: #faf7f2;
   }
 
   html.lenis,
@@ -44,6 +45,10 @@
     font-family: var(--font-sans);
   }
 
+  html.home-fullscreen body {
+    background: var(--home-atmosphere, var(--color-ivory));
+  }
+
   ::selection {
     background: color-mix(in srgb, var(--color-accent) 25%, transparent);
   }
@@ -51,6 +56,36 @@
   @media (prefers-reduced-motion: reduce) {
     html.lenis {
       scroll-behavior: auto;
+    }
+
+    .home-scroll-cue {
+      animation: none !important;
+    }
+  }
+}
+
+@layer utilities {
+  .header-overlay {
+    background: color-mix(
+      in srgb,
+      var(--home-atmosphere, #faf7f2) 72%,
+      transparent
+    );
+  }
+
+  .home-scroll-cue {
+    animation: home-scroll-pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes home-scroll-pulse {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scaleY(0.85);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1);
     }
   }
 }
