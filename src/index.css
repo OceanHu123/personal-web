@@ -1,6 +1,36 @@
 @import "tailwindcss";
 
-body {
-  margin: 0;
-  min-height: 100vh;
+@theme {
+  --font-sans: "Plus Jakarta Sans", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", system-ui, sans-serif;
+
+  --color-ivory: #faf7f2;
+  --color-ivory-soft: #fbf2eb;
+  --color-stone: #f3eee6;
+  --color-stone-soft: #efe7e0;
+  --color-stone-deep: #625b52;
+  --color-charcoal: #2c2824;
+  --color-taupe: #6b635a;
+  --color-accent: #2f9e8a;
+  --color-accent-soft: #8ef5de;
+  --color-accent-deep: #005144;
+  --color-border: #e2dbd2;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-ivory);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  }
 }
