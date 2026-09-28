@@ -50,8 +50,8 @@ export function HomePage() {
             </a>
           </li>
           <li>
-            <a href="#menu" data-cat="profile">
-              能力
+            <a href="#menu" data-cat="bilingual">
+              Bilingual
             </a>
           </li>
           <li>
@@ -73,7 +73,7 @@ export function HomePage() {
       <div className="mobile-nav" id="mobileNav">
         <a href="#menu">项目</a>
         <a href="#special">食练记</a>
-        <a href="#menu">能力</a>
+        <a href="#menu">Bilingual</a>
         <a href="#info">联系</a>
         <a href={site.profile.resumeHref} className="mob-cta" download>
           下载简历
@@ -230,30 +230,23 @@ export function HomePage() {
             <button type="button" className="cat-btn active" data-filter="all">
               全部
             </button>
-            <button type="button" className="cat-btn" data-filter="project">
-              项目
+            <button type="button" className="cat-btn" data-filter="setbite">
+              食练记
             </button>
-            <button type="button" className="cat-btn" data-filter="skill">
-              能力
-            </button>
-            <button type="button" className="cat-btn" data-filter="material">
-              资源
-            </button>
-            <button type="button" className="cat-btn" data-filter="link">
-              链接
+            <button type="button" className="cat-btn" data-filter="bilingual">
+              Bilingual
             </button>
           </div>
 
           <div className="menu-grid" id="menuGrid">
-            {/* Projects */}
-            <div className="menu-card reveal" data-cat="project">
+            <div className="menu-card reveal" data-cat="setbite">
               <div className="card-img-wrap">
                 <img
                   src={setbite.cardImage}
                   alt={setbite.shortTitle}
                   loading="lazy"
                 />
-                <span className="card-cat-badge">Project</span>
+                <span className="card-cat-badge">iOS</span>
               </div>
               <div className="card-body">
                 <div className="card-header">
@@ -278,7 +271,7 @@ export function HomePage() {
 
             <div
               className="menu-card reveal"
-              data-cat="project"
+              data-cat="bilingual"
               style={{ transitionDelay: '.07s' }}
             >
               <div className="card-img-wrap">
@@ -287,7 +280,7 @@ export function HomePage() {
                   alt={bilingual.shortTitle}
                   loading="lazy"
                 />
-                <span className="card-cat-badge">Project</span>
+                <span className="card-cat-badge">Extension</span>
               </div>
               <div className="card-body">
                 <div className="card-header">
@@ -309,137 +302,6 @@ export function HomePage() {
                 </div>
               </div>
             </div>
-
-            {/* Skills from profile — no invented metrics */}
-            {site.profile.tags.map((tag, i) => (
-              <div
-                key={tag.text}
-                className="menu-card reveal"
-                data-cat="skill"
-                style={{ transitionDelay: `${0.07 * (i + 1)}s` }}
-              >
-                <div
-                  className="card-img-wrap"
-                  style={{
-                    background: 'linear-gradient(135deg,#E1F5EE,#F5EFE0)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <div style={{ fontSize: 28, fontWeight: 600, color: '#0f6e56' }}>
-                    {tag.text.split(' ')[0]}
-                  </div>
-                  <span className="card-cat-badge">Skill</span>
-                </div>
-                <div className="card-body">
-                  <div className="card-header">
-                    <span className="card-name">{tag.text}</span>
-                  </div>
-                  <p className="card-desc">{site.profile.role}</p>
-                </div>
-              </div>
-            ))}
-
-            {/* Materials */}
-            <div className="menu-card reveal" data-cat="material">
-              <div className="card-img-wrap">
-                <img
-                  src="/images/setbite/01-eat-home.png"
-                  alt="食练记画廊素材"
-                  loading="lazy"
-                />
-                <span className="card-cat-badge">Gallery</span>
-              </div>
-              <div className="card-body">
-                <div className="card-header">
-                  <span className="card-name">食练记 App Store 五屏</span>
-                </div>
-                <p className="card-desc">
-                  详情页横向手机框合集（Eat / Train / Search / Recipes / Plan）。
-                </p>
-                <div className="card-footer">
-                  <Link to="/projects/setbite" className="add-btn">
-                    打开画廊
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="menu-card reveal"
-              data-cat="material"
-              style={{ transitionDelay: '.07s' }}
-            >
-              <div
-                className="card-img-wrap"
-                style={{
-                  background: 'linear-gradient(135deg,#FFF3DC,#F5EFE0)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <div style={{ fontSize: 18, fontWeight: 600, color: '#2c2c2a' }}>
-                  Resume PDF
-                </div>
-                <span className="card-cat-badge">Resume</span>
-              </div>
-              <div className="card-body">
-                <div className="card-header">
-                  <span className="card-name">{site.profile.resumeLabel}</span>
-                </div>
-                <p className="card-desc">
-                  投递用简历 PDF（本地 public/resume）。
-                </p>
-                <div className="card-footer">
-                  <a href={site.profile.resumeHref} className="add-btn" download>
-                    下载
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Links */}
-            {site.profile.links.map((link, i) => (
-              <div
-                key={link.label}
-                className="menu-card reveal"
-                data-cat="link"
-                style={{ transitionDelay: `${0.07 * (i + 1)}s` }}
-              >
-                <div
-                  className="card-img-wrap"
-                  style={{
-                    background: 'linear-gradient(135deg,#E1F5EE,#9FE1CB)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <div style={{ fontSize: 16, fontWeight: 600, color: '#0f6e56' }}>
-                    {link.label.replace(/ [↗]?$/, '').slice(0, 12)}
-                  </div>
-                  <span className="card-cat-badge">Link</span>
-                </div>
-                <div className="card-body">
-                  <div className="card-header">
-                    <span className="card-name">{link.label}</span>
-                  </div>
-                  <div className="card-footer">
-                    <a
-                      href={link.href}
-                      className="add-btn"
-                      {...(link.href.startsWith('http')
-                        ? { target: '_blank', rel: 'noreferrer' }
-                        : {})}
-                    >
-                      打开
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

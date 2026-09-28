@@ -134,10 +134,9 @@ export function useCodePenEffects(enabled: boolean) {
       '.codepen-home .nav-cats a[data-cat]',
     )
     const catMap: Record<string, string> = {
-      profile: 'skill',
-      projects: 'project',
-      setbite: 'project',
-      contact: 'link',
+      projects: 'all',
+      setbite: 'setbite',
+      bilingual: 'bilingual',
     }
     navLinks.forEach((a) => {
       const handler = (e: Event) => {
@@ -151,12 +150,18 @@ export function useCodePenEffects(enabled: boolean) {
         }
         if (cat === 'setbite') {
           document.getElementById('special')?.scrollIntoView({ behavior: 'smooth' })
+          // also sync project filter to 食练记 when arriving via nav
+          filterBtns.forEach((b) => {
+            if (b.dataset.filter === 'setbite') onFilterClick(b)
+          })
           return
         }
         const filterVal = catMap[cat]
-        filterBtns.forEach((b) => {
-          if (b.dataset.filter === filterVal) onFilterClick(b)
-        })
+        if (filterVal) {
+          filterBtns.forEach((b) => {
+            if (b.dataset.filter === filterVal) onFilterClick(b)
+          })
+        }
         document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })
       }
       a.addEventListener('click', handler)
